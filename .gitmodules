@@ -1,0 +1,3 @@
+[submodule "Network"]
+	path = Network
+	url = git@github.com:mankul/Network.git
