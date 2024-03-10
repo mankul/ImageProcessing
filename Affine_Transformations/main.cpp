@@ -9,13 +9,7 @@ void downloadImage(const char * url, const char * filePath){
 	nc.getJpegFileFromURL(url, filePath);
 }
 
-int main(){
-	// path is absolute. please change accordingly.
-	//cv::Mat image = cv::imread("/Users/mankulgupta/mankul/sample_images/neg1.png");
-	// cv::Mat image = cv::imread("/Users/mankulgupta/mankul/sample_images/corridor.png");
-	const char * url = "https://download.samplelib.com/jpeg/sample-city-park-400x300.jpg";
-	const char * filePath = "/Users/mankulgupta/mankul/sample_images/sample1.jpeg";
-	downloadImage(url, filePath);
+void displayImage(const char * filePath){
 	cv::Mat image = cv::imread(filePath);
 	int L = 255;
 	int rows = image.rows;
@@ -31,5 +25,15 @@ int main(){
 	}
 	cv::imshow("image", image);
 	cv::waitKey(0);
+	return 0;
+}
+
+int main(){
+	// path is absolute. please change accordingly.
+	//cv::Mat image = cv::imread("/Users/mankulgupta/mankul/sample_images/neg1.png");
+	// cv::Mat image = cv::imread("/Users/mankulgupta/mankul/sample_images/corridor.png");
+	const char * url = "https://download.samplelib.com/jpeg/sample-city-park-400x300.jpg";
+	const char * filePath = "/Users/mankulgupta/mankul/sample_images/sample1.jpeg";
+	downloadImage(url, filePath);
 	return 0;
 }
