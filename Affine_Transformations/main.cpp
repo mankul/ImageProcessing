@@ -9,7 +9,8 @@ void downloadImage(const char * url, const char * filePath){
 	nc.getJpegFileFromURL(url, filePath);
 }
 
-void displayImage(const char * filePath){
+
+void scale_image(const char * filePath){
 	cv::Mat image = cv::imread(filePath);
 	int L = 255;
 	int rows = image.rows;
@@ -19,10 +20,31 @@ void displayImage(const char * filePath){
 	{
 		for(int j = 0; j < cols; j++)
 		{
-			//write logic
-			//image.at<u_char>(i,j) = L - image.at<u_char>(i,j);
+			// write logic
+			image.at<u_char>(i,j) = L - image.at<u_char>(i,j);
 		}
 	}
+	cv::imshow("image", image);
+	cv::waitKey(0);
+	
+}
+
+
+
+void displayImage(const char * filePath){
+	cv::Mat image = cv::imread(filePath);
+	int L = 255;
+	int rows = image.rows;
+	int cols = image.cols;
+	std::cout<<"image size is : rows: "<<rows<<" cols: "<<cols<<std::endl;
+	// for (int i = 0; i < rows; i++)
+	// {
+		// for(int j = 0; j < cols; j++)
+		// {
+			//write logic
+			// image.at<u_char>(i,j) = L - image.at<u_char>(i,j);
+		// }
+	// }
 	cv::imshow("image", image);
 	cv::waitKey(0);
 	return 0;
