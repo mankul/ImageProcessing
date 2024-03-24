@@ -5,24 +5,27 @@
 
 using namespace cv;
 
-
+//download image from the source. need to test lib imported for different projects.
 void downloadImage(const char * url, const char * filePath){
 	NetworkConnection nc;
 	nc.getJpegFileFromURL(url, filePath);
 }
 
+
+// read image.
 Mat readImage(const char * filePath){
 	Mat image = imread(filePath);
 	return image;
 }
 
-
+// Rotation successfull.
 void rotate_image_complete(Mat image, double angle){
 	Mat frame, rotatedImage;
 	int x, y;
 	x = image.cols - 1;
 	y = image.rows - 1;
 
+	// diagonal for the image end to end.
 	int diagonal = (int)std::sqrt(x * x + y * y);
 
 	Mat rotationMatrix(diagonal, diagonal, image.type());
